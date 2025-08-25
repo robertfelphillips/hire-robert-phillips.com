@@ -1,64 +1,12 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Your Name — Resume</title>
-  <style>
-    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#60a5fa; }
-    * { box-sizing: border-box; }
-    body { margin:0; background:linear-gradient(135deg,#0b1020,#121826); color:var(--text); font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif; }
-    .wrap { max-width: 920px; margin: 48px auto; padding: 0 20px; }
-    .card { background: rgba(17,24,39,.7); border:1px solid #1f2937; border-radius: 16px; padding: 28px; backdrop-filter: blur(6px); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
-    h1 { margin: 0 0 4px; font-size: 32px; }
-    .sub { color: var(--muted); margin: 0 0 16px; }
-    a { color: var(--accent); text-decoration: none; }
-    .grid { display:grid; gap:18px; grid-template-columns: 1fr; }
-    .sec h2 { font-size: 18px; margin: 0 0 8px; letter-spacing:.3px; }
-    ul { margin: 8px 0 0 18px; }
-    @media (min-width: 860px){ .grid { grid-template-columns: 1.2fr .8fr; } }
-    .btn { display:inline-block; padding:10px 14px; border:1px solid #334155; border-radius:10px; }
-  </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Your Name</h1>
-      <p class="sub">City, ST · <a href="mailto:you@example.com">you@example.com</a> · <a href="https://linkedin.com/in/yourhandle">LinkedIn</a> · <a href="https://github.com/yourusername">GitHub</a> · <a class="btn" href="resume.pdf">Download PDF</a></p>
-      <div class="grid">
-        <div class="sec">
-          <h2>About</h2>
-          <p>1–3 sentences about who you are and what roles you’re targeting.</p>
-
-          <h2>Experience</h2>
-          <p><strong>Role — Company</strong> (2024–Present)</p>
-          <ul>
-            <li>Quantified impact bullet (e.g., “Cut build time 35% by…”)</li>
-            <li>Another bullet</li>
-          </ul>
-
-          <h2>Projects</h2>
-          <ul>
-            <li><strong>Project Name</strong> — one-line what/impact. <a href="#">Repo</a> · <a href="#">Live</a></li>
-            <li><strong>Project Name</strong> — one-line what/impact.</li>
-          </ul>
-        </div>
-        <div class="sec">
-          <h2>Skills</h2>
-          <ul>
-            <li>Languages: Python, C++, Java</li>
-            <li>Web: HTML, CSS, JS</li>
-            <li>Tools: Git, Linux, Docker</li>
-          </ul>
-
-          <h2>Education</h2>
-          <p><strong>Florida State University</strong><br/>B.A. in [Major], Expected 202X</p>
-
-          <h2>Certs / Awards</h2>
-          <ul><li>Example cert or award</li></ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h1>Hello, I’m Your Name</h1>
+  <p>This is my resume website hosted with GitHub Pages.</p>
 </body>
 </html>
