@@ -6,7 +6,7 @@
     <title>Robert Phillips</title>
     <meta
       name="description"
-      content="Robert Phillips is a senior computer science student at Florida State University with interests in cybersecurity, digital forensics, and computer systems."
+      content="Senior Computer Science student at Florida State University focused on cybersecurity, digital forensics, and systems."
     />
     <style>
       :root {
@@ -22,6 +22,10 @@
 
       * {
         box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
@@ -67,32 +71,15 @@
         color: rgba(255, 249, 240, 0.92);
       }
 
-      .content {
-        display: grid;
-        grid-template-columns: 1.45fr 0.85fr;
-        gap: 1.25rem;
-        padding: clamp(1.5rem, 3vw, 2rem);
-      }
-
-      .panel {
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        padding: 1.5rem;
-        background: rgba(255, 251, 245, 0.88);
-      }
-
-      h2 {
-        margin: 0 0 0.9rem;
-        font-size: 1.05rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--garnet);
-      }
-
-      p {
-        margin: 0;
-        line-height: 1.75;
-        font-size: 1.02rem;
+      .proof {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        background: rgba(255, 249, 240, 0.12);
+        border: 1px solid rgba(255, 249, 240, 0.12);
+        font-size: 0.98rem;
+        color: rgba(255, 249, 240, 0.96);
       }
 
       .actions {
@@ -112,17 +99,68 @@
         border: 1px solid transparent;
         text-decoration: none;
         font-weight: 700;
-        transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+        transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
       }
 
       .btn:hover {
-        transform: translateY(-1px);
+        transform: translateY(-1px) scale(1.01);
+        filter: brightness(1.03);
       }
 
       .btn-primary {
         color: var(--garnet-deep);
         background: linear-gradient(135deg, var(--gold-soft), var(--gold));
         box-shadow: 0 12px 30px rgba(206, 184, 136, 0.28);
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1.45fr 0.85fr;
+        gap: 1.25rem;
+        padding: clamp(1.5rem, 3vw, 2rem);
+      }
+
+      .projects {
+        padding: 0 clamp(1.5rem, 3vw, 2rem) 2rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 1.5rem;
+        background: rgba(255, 251, 245, 0.88);
+        transition: transform 140ms ease, box-shadow 140ms ease;
+      }
+
+      .panel:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(92, 31, 47, 0.08);
+      }
+
+      h2 {
+        margin: 0 0 0.9rem;
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--garnet);
+      }
+
+      .project-card h3 {
+        margin: 0 0 0.6rem;
+        font-size: 1.1rem;
+        color: var(--garnet-deep);
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.75;
+        font-size: 1.02rem;
       }
 
       .info-list {
@@ -170,6 +208,14 @@
           padding: 1.25rem;
         }
 
+        .projects {
+          padding: 0 1.25rem 1.5rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
         .footer {
           padding: 0 1.25rem 1.5rem;
         }
@@ -181,25 +227,23 @@
       <section class="hero">
         <h1>Hi, I'm Robert Phillips.</h1>
         <p class="subtitle">
-          I'm a senior computer science student at Florida State University focused on building stronger skills
-          in cybersecurity, digital forensics, and computer systems through hands-on industry experience.
+          Senior Computer Science student at Florida State University focused on cybersecurity, digital
+          forensics, and systems. Building practical experience through hands-on projects and real-world problem
+          solving.
         </p>
+        <div class="proof">Experience with C++, C#, Linux systems, and cybersecurity tools.</div>
         <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="Robert-Phillips-Resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View Resume
+          <a class="btn btn-primary" href="Robert-Phillips-Resume.pdf" target="_blank" rel="noreferrer">
+            Resume
           </a>
+          <a class="btn btn-primary" href="#projects">Projects</a>
           <a
             class="btn btn-primary"
             href="https://www.linkedin.com/in/robert-phillips-59b705252/"
             target="_blank"
             rel="noreferrer noopener"
           >
-            LinkedIn
+            Connect on LinkedIn
           </a>
         </div>
       </section>
@@ -208,9 +252,9 @@
         <article class="panel">
           <h2>About</h2>
           <p>
-            I'm building a strong technical base through academic work, practical experience, and continued
-            growth in the security and systems space. I'm especially interested in opportunities where I can keep
-            learning, contribute to a team, and apply careful thinking to real-world technical problems.
+            I focus on building a strong foundation in computer systems and security through hands-on development
+            and problem solving. I'm especially interested in cybersecurity roles where I can analyze systems,
+            identify weaknesses, and contribute to practical solutions.
           </p>
         </article>
 
@@ -218,15 +262,33 @@
           <h2>Contact</h2>
           <div class="info-list">
             <div>
-              <div class="label">Business Email</div>
+              <div class="label">Email</div>
               <div class="value"><a href="mailto:robertphillix@gmail.com">robertphillix@gmail.com</a></div>
             </div>
             <div>
-              <div class="label">Student Email</div>
+              <div class="label">FSU</div>
               <div class="value"><a href="mailto:rfp22@fsu.edu">rfp22@fsu.edu</a></div>
             </div>
           </div>
         </aside>
+      </section>
+
+      <section class="projects" id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="panel project-card">
+            <h3>Custom Shell</h3>
+            <p>Built a command-line shell focused on process control, parsing, and core systems behavior.</p>
+          </article>
+          <article class="panel project-card">
+            <h3>Hash Table Implementation</h3>
+            <p>Implemented efficient data storage and lookup logic with attention to performance and structure.</p>
+          </article>
+          <article class="panel project-card">
+            <h3>Security-Focused Tooling</h3>
+            <p>Explored practical security workflows through tools and projects tied to cybersecurity concepts.</p>
+          </article>
+        </div>
       </section>
 
       <footer class="footer">Copyright <span id="year"></span> Robert Phillips</footer>
