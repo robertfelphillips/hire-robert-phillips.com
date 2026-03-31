@@ -24,10 +24,6 @@
         box-sizing: border-box;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
         margin: 0;
         min-height: 100vh;
@@ -120,16 +116,6 @@
         padding: clamp(1.5rem, 3vw, 2rem);
       }
 
-      .projects {
-        padding: 0 clamp(1.5rem, 3vw, 2rem) 2rem;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
       .panel {
         border: 1px solid var(--line);
         border-radius: 22px;
@@ -149,12 +135,6 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--garnet);
-      }
-
-      .project-card h3 {
-        margin: 0 0 0.6rem;
-        font-size: 1.1rem;
-        color: var(--garnet-deep);
       }
 
       p {
@@ -208,14 +188,6 @@
           padding: 1.25rem;
         }
 
-        .projects {
-          padding: 0 1.25rem 1.5rem;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
         .footer {
           padding: 0 1.25rem 1.5rem;
         }
@@ -236,7 +208,6 @@
           <a class="btn btn-primary" href="Robert-Phillips-Resume.pdf" target="_blank" rel="noreferrer">
             Resume
           </a>
-          <a class="btn btn-primary" href="#projects">Projects</a>
           <a
             class="btn btn-primary"
             href="https://www.linkedin.com/in/robert-phillips-59b705252/"
@@ -271,24 +242,6 @@
             </div>
           </div>
         </aside>
-      </section>
-
-      <section class="projects" id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-          <article class="panel project-card">
-            <h3>Custom Shell</h3>
-            <p>Built a command-line shell focused on process control, parsing, and core systems behavior.</p>
-          </article>
-          <article class="panel project-card">
-            <h3>Hash Table Implementation</h3>
-            <p>Implemented efficient data storage and lookup logic with attention to performance and structure.</p>
-          </article>
-          <article class="panel project-card">
-            <h3>Security-Focused Tooling</h3>
-            <p>Explored practical security workflows through tools and projects tied to cybersecurity concepts.</p>
-          </article>
-        </div>
       </section>
 
       <footer class="footer">Copyright <span id="year"></span> Robert Phillips</footer>
