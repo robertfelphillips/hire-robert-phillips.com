@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hire Robert Phillips</title>
+    <meta
+      name="description"
+      content="Portfolio website for Robert Phillips - student, builder, and future teammate."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --card: #121a31;
+        --text: #e8ecff;
+        --muted: #b6c0e0;
+        --accent: #70a6ff;
+        --accent-2: #96f2d7;
+        --border: #26304f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 10% -20%, #1f2c57 0%, var(--bg) 45%);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1000px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 4.5rem 0 2rem;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        margin-bottom: 0.5rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.1;
+        margin: 0;
+      }
+
+      .subtitle {
+        margin-top: 1rem;
+        max-width: 66ch;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+      }
+
+      .cta-row {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border: 1px solid var(--border);
+        border-radius: 0.7rem;
+        padding: 0.75rem 1rem;
+        font-weight: 600;
+        color: var(--text);
+        transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: var(--accent);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #4a80d8, #5aa3f6);
+        border-color: transparent;
+      }
+
+      section {
+        margin: 1.8rem 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: color-mix(in oklab, var(--card) 92%, black);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 1rem 1rem 1.1rem;
+      }
+
+      .card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .card p,
+      li {
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .footer {
+        padding: 2rem 0 3.5rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .small {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <span class="eyebrow">Student Portfolio</span>
+        <h1>Hi, I'm Robert Phillips.</h1>
+        <p class="subtitle">
+          I'm a student focused on learning fast, building practical projects, and creating value from day one.
+          This site is my quick professional profile for internships and entry-level roles.
+        </p>
+        <div class="cta-row">
+          <a
+            class="btn btn-primary"
+            href="https://www.linkedin.com/in/robert-phillips-59b705252/"
+            target="_blank"
+            rel="noreferrer noopener"
+            >Visit my LinkedIn</a
+          >
+          <a class="btn" href="mailto:robertphillix@gmail.com">Business Email</a>
+          <a class="btn" href="mailto:rfp22@fsu.edu">Student Email</a>
+        </div>
+      </header>
+
+      <section class="grid" aria-label="highlights">
+        <article class="card">
+          <h2>What I'm Looking For</h2>
+          <p>
+            Internship or early-career opportunities where I can contribute, learn from experienced teammates,
+            and ship useful work.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Strengths</h2>
+          <ul>
+            <li>Clear communication</li>
+            <li>Ownership and follow-through</li>
+            <li>Curiosity and fast iteration</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Right Now</h2>
+          <p>
+            Growing my technical skills, expanding my project portfolio, and connecting with teams solving real
+            problems.
+          </p>
+        </article>
+      </section>
+
+      <section class="card" aria-label="about robert">
+        <h2>Why Hire Robert?</h2>
+        <p>
+          I bring a student's hunger to learn with a professional mindset: be reliable, improve quickly, and
+          deliver. If your team values initiative and coachability, I'd love to connect.
+        </p>
+        <p class="small">
+          Contact: <a href="mailto:robertphillix@gmail.com">robertphillix@gmail.com</a> |
+          <a href="mailto:rfp22@fsu.edu">rfp22@fsu.edu</a>
+        </p>
+      </section>
+
+      <footer class="footer">
+        Copyright <span id="year"></span> Robert Phillips | Built for hire-robert style personal branding.
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
