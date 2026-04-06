@@ -123,6 +123,11 @@
         padding: clamp(1.5rem, 3vw, 2rem);
       }
 
+      .main-column {
+        display: grid;
+        gap: 1.25rem;
+      }
+
       .panel {
         border: 1px solid var(--line);
         border-radius: 22px;
@@ -171,6 +176,79 @@
       }
 
       .value a:hover {
+        text-decoration: underline;
+      }
+
+      .projects-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.9rem;
+      }
+
+      .projects-nav {
+        display: flex;
+        gap: 0.55rem;
+      }
+
+      .nav-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--garnet-deep);
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 140ms ease, background 140ms ease, opacity 140ms ease;
+      }
+
+      .nav-btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background: rgba(206, 184, 136, 0.28);
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.45;
+        cursor: default;
+      }
+
+      .projects-viewport {
+        overflow: hidden;
+      }
+
+      .projects-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: 1rem;
+        transition: transform 220ms ease;
+      }
+
+      .project-card {
+        min-width: 0;
+      }
+
+      .project-name {
+        margin: 0 0 0.65rem;
+        font-size: 1.2rem;
+        color: var(--garnet-deep);
+      }
+
+      .project-text {
+        color: rgba(33, 25, 27, 0.84);
+      }
+
+      .project-link {
+        display: inline-flex;
+        margin-top: 1rem;
+        color: var(--garnet-deep);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .project-link:hover {
         text-decoration: underline;
       }
 
@@ -227,14 +305,46 @@
       </section>
 
       <section class="content">
-        <article class="panel">
-          <h2>About</h2>
-          <p>
-            I focus on building a strong foundation in computer systems and security through hands-on development
-            and problem solving. I'm especially interested in cybersecurity roles where I can analyze systems,
-            identify weaknesses, and contribute to practical solutions.
-          </p>
-        </article>
+        <div class="main-column">
+          <article class="panel">
+            <h2>About</h2>
+            <p>
+              I focus on building a strong foundation in computer systems and security through hands-on development
+              and problem solving. I'm especially interested in cybersecurity roles where I can analyze systems,
+              identify weaknesses, and contribute to practical solutions.
+            </p>
+          </article>
+
+          <section class="panel" aria-label="projects">
+            <div class="projects-head">
+              <h2>Projects</h2>
+              <div class="projects-nav" aria-label="project navigation">
+                <button class="nav-btn" id="projects-prev" type="button" aria-label="Previous project">&#8592;</button>
+                <button class="nav-btn" id="projects-next" type="button" aria-label="Next project">&#8594;</button>
+              </div>
+            </div>
+            <div class="projects-viewport">
+              <div class="projects-track" id="projects-track">
+                <article class="project-card">
+                  <h3 class="project-name">custom-linux-shell</h3>
+                  <p class="project-text">
+                    A custom Linux shell project built to strengthen systems programming fundamentals through command
+                    parsing, shell flow, and core terminal behavior. It highlights low-level problem solving and a
+                    hands-on approach to understanding how shell environments work.
+                  </p>
+                  <a
+                    class="project-link"
+                    href="https://github.com/robertfelphillips/systems-and-securities-lab/tree/main/custom-linux-shell"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    View project
+                  </a>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
 
         <aside class="panel">
           <h2>Contact</h2>
@@ -255,6 +365,29 @@
     </main>
 
     <script>
+      const track = document.getElementById("projects-track");
+      const prev = document.getElementById("projects-prev");
+      const next = document.getElementById("projects-next");
+      const cards = Array.from(track.children);
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(calc(${currentIndex * -100}% - ${currentIndex}rem))`;
+        prev.disabled = currentIndex === 0;
+        next.disabled = currentIndex === cards.length - 1;
+      }
+
+      prev.addEventListener("click", () => {
+        currentIndex = Math.max(0, currentIndex - 1);
+        updateCarousel();
+      });
+
+      next.addEventListener("click", () => {
+        currentIndex = Math.min(cards.length - 1, currentIndex + 1);
+        updateCarousel();
+      });
+
+      updateCarousel();
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
