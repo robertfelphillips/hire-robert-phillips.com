@@ -123,11 +123,6 @@
         padding: clamp(1.5rem, 3vw, 2rem);
       }
 
-      .main-column {
-        display: grid;
-        gap: 1.25rem;
-      }
-
       .panel {
         border: 1px solid var(--line);
         border-radius: 22px;
@@ -179,12 +174,21 @@
         text-decoration: underline;
       }
 
+      .projects-panel {
+        margin: 0 clamp(1.5rem, 3vw, 2rem) 2rem;
+      }
+
       .projects-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        margin-bottom: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .projects-copy {
+        margin: -0.2rem 0 1rem;
+        color: rgba(33, 25, 27, 0.76);
       }
 
       .projects-nav {
@@ -193,8 +197,8 @@
       }
 
       .nav-btn {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.75rem;
+        height: 2.75rem;
         border: 1px solid var(--line);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.8);
@@ -219,14 +223,13 @@
       }
 
       .projects-track {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 100%;
+        display: flex;
         gap: 1rem;
-        transition: transform 220ms ease;
+        transition: transform 260ms ease;
       }
 
       .project-card {
+        flex: 0 0 calc((100% - 2rem) / 3);
         min-width: 0;
       }
 
@@ -258,6 +261,12 @@
         font-size: 0.95rem;
       }
 
+      @media (max-width: 900px) {
+        .project-card {
+          flex-basis: calc((100% - 1rem) / 2);
+        }
+      }
+
       @media (max-width: 760px) {
         .shell {
           margin: 1rem auto;
@@ -271,6 +280,14 @@
         .content {
           grid-template-columns: 1fr;
           padding: 1.25rem;
+        }
+
+        .projects-panel {
+          margin: 0 1.25rem 1.5rem;
+        }
+
+        .project-card {
+          flex-basis: 100%;
         }
 
         .footer {
@@ -305,46 +322,14 @@
       </section>
 
       <section class="content">
-        <div class="main-column">
-          <article class="panel">
-            <h2>About</h2>
-            <p>
-              I focus on building a strong foundation in computer systems and security through hands-on development
-              and problem solving. I'm especially interested in cybersecurity roles where I can analyze systems,
-              identify weaknesses, and contribute to practical solutions.
-            </p>
-          </article>
-
-          <section class="panel" aria-label="projects">
-            <div class="projects-head">
-              <h2>Projects</h2>
-              <div class="projects-nav" aria-label="project navigation">
-                <button class="nav-btn" id="projects-prev" type="button" aria-label="Previous project">&#8592;</button>
-                <button class="nav-btn" id="projects-next" type="button" aria-label="Next project">&#8594;</button>
-              </div>
-            </div>
-            <div class="projects-viewport">
-              <div class="projects-track" id="projects-track">
-                <article class="project-card">
-                  <h3 class="project-name">custom-linux-shell</h3>
-                  <p class="project-text">
-                    A custom Linux shell project built to strengthen systems programming fundamentals through command
-                    parsing, shell flow, and core terminal behavior. It highlights low-level problem solving and a
-                    hands-on approach to understanding how shell environments work.
-                  </p>
-                  <a
-                    class="project-link"
-                    href="https://github.com/robertfelphillips/systems-and-securities-lab/tree/main/custom-linux-shell"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    View project
-                  </a>
-                </article>
-              </div>
-            </div>
-          </section>
-        </div>
+        <article class="panel">
+          <h2>About</h2>
+          <p>
+            I focus on building a strong foundation in computer systems and security through hands-on development
+            and problem solving. I'm especially interested in cybersecurity roles where I can analyze systems,
+            identify weaknesses, and contribute to practical solutions.
+          </p>
+        </article>
 
         <aside class="panel">
           <h2>Contact</h2>
@@ -361,6 +346,37 @@
         </aside>
       </section>
 
+      <section class="panel projects-panel" aria-label="projects">
+        <div class="projects-head">
+          <h2>Projects</h2>
+          <div class="projects-nav" aria-label="project navigation">
+            <button class="nav-btn" id="projects-prev" type="button" aria-label="Previous project page">&#8592;</button>
+            <button class="nav-btn" id="projects-next" type="button" aria-label="Next project page">&#8594;</button>
+          </div>
+        </div>
+        <p class="projects-copy">Project cards scroll by page, with room for at least three at a time on larger screens.</p>
+        <div class="projects-viewport">
+          <div class="projects-track" id="projects-track">
+            <article class="panel project-card">
+              <h3 class="project-name">custom-linux-shell</h3>
+              <p class="project-text">
+                A custom Linux shell project built to strengthen systems programming fundamentals through command
+                parsing, shell flow, and core terminal behavior. It reflects hands-on work with low-level logic,
+                terminal interaction, and shell design.
+              </p>
+              <a
+                class="project-link"
+                href="https://github.com/robertfelphillips/systems-and-securities-lab/tree/main/custom-linux-shell"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                View project
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <footer class="footer">Copyright <span id="year"></span> Robert Phillips</footer>
     </main>
 
@@ -369,23 +385,45 @@
       const prev = document.getElementById("projects-prev");
       const next = document.getElementById("projects-next");
       const cards = Array.from(track.children);
-      let currentIndex = 0;
+      let currentPage = 0;
+
+      function getCardsPerPage() {
+        if (window.innerWidth <= 760) {
+          return 1;
+        }
+        if (window.innerWidth <= 900) {
+          return 2;
+        }
+        return 3;
+      }
+
+      function getPageCount() {
+        return Math.max(1, Math.ceil(cards.length / getCardsPerPage()));
+      }
 
       function updateCarousel() {
-        track.style.transform = `translateX(calc(${currentIndex * -100}% - ${currentIndex}rem))`;
-        prev.disabled = currentIndex === 0;
-        next.disabled = currentIndex === cards.length - 1;
+        const cardsPerPage = getCardsPerPage();
+        const pageCount = getPageCount();
+        currentPage = Math.min(currentPage, pageCount - 1);
+        const cardWidth = cards[0] ? cards[0].getBoundingClientRect().width : 0;
+        const gap = cards.length > 1 ? parseFloat(getComputedStyle(track).gap) || 0 : 0;
+        const offset = currentPage * cardsPerPage * (cardWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+        prev.disabled = currentPage === 0;
+        next.disabled = currentPage >= pageCount - 1;
       }
 
       prev.addEventListener("click", () => {
-        currentIndex = Math.max(0, currentIndex - 1);
+        currentPage = Math.max(0, currentPage - 1);
         updateCarousel();
       });
 
       next.addEventListener("click", () => {
-        currentIndex = Math.min(cards.length - 1, currentIndex + 1);
+        currentPage = Math.min(getPageCount() - 1, currentPage + 1);
         updateCarousel();
       });
+
+      window.addEventListener("resize", updateCarousel);
 
       updateCarousel();
       document.getElementById("year").textContent = new Date().getFullYear();
