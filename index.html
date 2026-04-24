@@ -52,6 +52,31 @@
         color: #fff9f0;
       }
 
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.85fr;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .hero-copy {
+        min-width: 0;
+      }
+
+      .hero-photo {
+        display: flex;
+        justify-content: center;
+      }
+
+      .headshot {
+        width: min(240px, 100%);
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 249, 240, 0.48);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+      }
+
       h1 {
         margin: 0;
         font-size: clamp(2.75rem, 7vw, 5rem);
@@ -277,6 +302,11 @@
           padding: 2.5rem 1.25rem;
         }
 
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+        }
+
         .content {
           grid-template-columns: 1fr;
           padding: 1.25rem;
@@ -299,25 +329,33 @@
   <body>
     <main class="shell">
       <section class="hero">
-        <h1>Hi, I'm Robert Phillips.</h1>
-        <p class="subtitle">
-          Senior Computer Science student at Florida State University focused on cybersecurity, digital
-          forensics, and systems. Building practical experience through hands-on projects and real-world problem
-          solving.
-        </p>
-        <div class="proof">C++, Python, Linux systems, and practical cybersecurity tooling.</div>
-        <div class="actions">
-          <a class="btn btn-primary" href="Robert-Phillips-Resume.pdf" target="_blank" rel="noreferrer">
-            Resume
-          </a>
-          <a
-            class="btn btn-secondary"
-            href="https://www.linkedin.com/in/robert-phillips-59b705252/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Connect on LinkedIn
-          </a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Hi, I'm Robert Phillips.</h1>
+            <p class="subtitle">
+              Senior Computer Science student at Florida State University focused on cybersecurity, digital
+              forensics, and systems. Building practical experience through hands-on projects and real-world problem
+              solving.
+            </p>
+            <div class="proof">C++, Python, Linux systems, and practical cybersecurity tooling.</div>
+            <div class="actions">
+              <a class="btn btn-primary" href="Robert-Phillips-Resume.pdf" target="_blank" rel="noreferrer">
+                Resume
+              </a>
+              <a
+                class="btn btn-secondary"
+                href="https://www.linkedin.com/in/robert-phillips-59b705252/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-photo">
+            <img src="headshot.jpg" alt="Robert Phillips headshot" class="headshot" />
+          </div>
         </div>
       </section>
 
