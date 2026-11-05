@@ -14,7 +14,7 @@ This is a simple static site that highlights my background, resume, contact info
 
 ## Projects
 
-- `custom-linux-shell`
+- `ctf-writeups`
 - `cybersecurity-tools-webapp`
 - `linux-elevator-module`
-- `ctf-writeups`
+- `custom-linux-shell`
